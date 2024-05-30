@@ -11,7 +11,8 @@
 
 ### Experiments
 
-Evaluate the following models:
+Evaluate the following models (in both directions `<language>`->English and vice
+versa):
 - Instruction Fine-Tuned Monolingual `<language>` Model (prompt-based translation)
 - Instruction Fine-Tuned Monolingual English Model (prompt-based translation)
 - Merged Fine-Tuned Models 1 and 2 (prompt-based translation)
