@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Model merging for improved language translation
 
 **Potential models**
@@ -13,3 +14,5 @@
 
 ## Merging
 Here is an implementation of TIES: https://github.com/arcee-ai/mergekit/blob/main/mergekit/merge_methods/generalized_task_arithmetic.py
+=======
+>>>>>>> Stashed changes
