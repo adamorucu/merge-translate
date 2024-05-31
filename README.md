@@ -3,18 +3,31 @@
 ## Install
 
 ```
+conda activate <env>
 poetry install
 ```
 
 If you do not have `poetry`, see the [official documentation](https://python-poetry.org/docs/#installation) for the installation.
 
+## Usage
+
+Interactive translation:
+```
+python scripts/interact_en-it.py
+```
+
+Evaluate:
+```
+python scripts/evaluate_it-tr.py
+```
+
 ## Hypothesis
 
-Given:
-1. Instruction fine-tuned LM on non-English `<language1>`
-2. Instruciton fine-tuned LM on non-English `<language2>`
+Given two LLMs:
+1. Instruction fine-tuned LLM on non-English `<language1>`
+2. Instruciton fine-tuned LLM on non-English `<language2>`
 
-Merging models 1 and 2 can perform translation tasks between `<language1>` and `<language2>` (both directions) better than the individual models 1 and 2.
+Merging LLMs 1 and 2 can perform machine translation between `<language1>` and `<language2>` (both directions) better than the individual LLMs 1 and 2.
 
 ## Experiments
 

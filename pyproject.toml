@@ -10,9 +10,11 @@ python = "^3.12"
 flake8-pyproject = "^1.2.3"
 transformers = "^4.41.2"
 datasets = "^2.19.1"
-evaluation = "^0.0.2"
 nltk = "^3.8.1"
 sacremoses = "^0.1.1"
+evaluate = "^0.4.2"
+tqdm = "^4.66.4"
+sacrebleu = "^2.4.2"
 
 [build-system]
 requires = ["poetry-core"]
