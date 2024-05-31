@@ -14,7 +14,7 @@ class Translator(ABC):
         self.pipeline = hf_transformers.pipeline(
             task="text-generation",
             model=model_id,
-            max_new_tokens=512,
+            max_new_tokens=64,
             device_map="auto",
         )
 
@@ -28,16 +28,19 @@ class Translator(ABC):
         return output[0]["generated_text"]
 
     def evaluate(self, from_language: str, to_language: str, output_path: str | Path | None = None) -> dict[str, float]:
+        lang1, lang2 = (from_language, to_language) if from_language < to_language else (to_language, from_language)
         dataset = hf_datasets.load_dataset(
             "Helsinki-NLP/tatoeba",
-            lang1=from_language,
-            lang2=to_language,
+            lang1=lang1,
+            lang2=lang2,
             split="train",
             trust_remote_code=True,
-        )
+        )["translation"]
+
+        dataset = dataset[:100]  # TODO: for draft, a subset is ok... later we will use the full dataset
 
         def data_generator():
-            for translation in dataset["translation"]:
+            for translation in dataset:
                 yield translation[from_language], translation[to_language]
 
         metrics = hf_evaluate.combine(["bleu", "meteor", "chrf"])
@@ -94,4 +97,4 @@ class TurkishTranslator(Translator):
     def _get_prompt(self, text: str, from_language: str, to_language: str) -> str:
         from_language = self.code_to_language_from[from_language]
         to_language = self.code_to_language_to[to_language]
-        return f"[INST] {from_language} {to_language} çevir: {text} [/INST]"
+        return f"<s>[INST] {from_language} {to_language} çevir: {text} [/INST]"
