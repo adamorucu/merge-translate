@@ -86,7 +86,7 @@ class TurkishTranslator(Translator):
     code_to_language_from = {
         "tr": "Türkçe'den",
         "it": "İtalyanca'dan",
-        "en": "İngilizceden",
+        "en": "İngilizce'den",
     }
     code_to_language_to = {
         "tr": "Türkçe'ye",
@@ -97,4 +97,4 @@ class TurkishTranslator(Translator):
     def _get_prompt(self, text: str, from_language: str, to_language: str) -> str:
         from_language = self.code_to_language_from[from_language]
         to_language = self.code_to_language_to[to_language]
-        return f"<s>[INST] {from_language} {to_language} çevir: {text} [/INST]"
+        return f"<s>[INST] Bu cümleyi {from_language} {to_language} çevir.\n\n{text} [/INST]"
