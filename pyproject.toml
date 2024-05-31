@@ -8,6 +8,11 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 flake8-pyproject = "^1.2.3"
+transformers = "^4.41.2"
+datasets = "^2.19.1"
+evaluation = "^0.0.2"
+nltk = "^3.8.1"
+sacremoses = "^0.1.1"
 
 [build-system]
 requires = ["poetry-core"]
@@ -21,7 +26,10 @@ disable = """
 """
 
 [tool.pylint.format]
-max-line-length=120
+max-line-length = 120
+
+[tool.flake8]
+max-line-length = 120
 
 [tool.black]
-line-length=120
+line-length = 120
