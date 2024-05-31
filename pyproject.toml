@@ -1,5 +1,4 @@
 [tool.poetry]
-package-mode = false
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -8,13 +7,21 @@ evaluate = "^0.4.2"
 datasets = "^2.19.1"
 transformers = "^4.41.2"
 nltk = "^3.8.1"
+sacremoses = "^0.1.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pylint]
-disable = "missing-module-docstring,missing-function-docstring,missing-class-docstring"
+disable = """
+    missing-module-docstring,
+    missing-function-docstring,
+    missing-class-docstring,
+"""
+
+[tool.pylint.format]
+max-line-length=120
 
 [tool.black]
-line-length = 100
+line-length=120
