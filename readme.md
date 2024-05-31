@@ -21,16 +21,20 @@ versa):
 Metrics:
 - [BLEU](https://huggingface.co/spaces/evaluate-metric/bleu)
 - [METEOR](https://huggingface.co/spaces/evaluate-metric/meteor)
+- [CHRF](https://huggingface.co/spaces/evaluate-metric/chrf)
 
 Datasets:
+- [OPUS-100](https://huggingface.co/datasets/Helsinki-NLP/opus-100)
 - [Europarl](https://www.statmt.org/europarl/)
 - [WMT21](https://huggingface.co/datasets/wmt/wmt21) (or previous years)
 
 Potential models:
-- [Polish - LLaMa2 7B](https://huggingface.co/Azurro/llama-2-7b-qlora-polish-instruct) 
-- [Polish - LLaMa2 7B](https://huggingface.co/Aspik101/Llama-2-7b-hf-instruct-pl-lora_unload)
-- [Turkish - LLaMa2 7B](https://huggingface.co/Trendyol/Trendyol-LLM-7b-chat-v0.1)
-- [Italian - Mistral 7B](https://huggingface.co/scribis/Fantastica-7b-Instruct-0.2-Italian)
+- [Multilingual translator IT->EN](https://huggingface.co/Helsinki-NLP/opus-mt-it-en)
+- [Multilingual translator EN->IT](https://huggingface.co/Helsinki-NLP/opus-mt-en-it)
+- [Multilingual translator PL->EN](https://huggingface.co/Helsinki-NLP/opus-mt-pl-en)
+- [Multilingual translator EN->PL](https://huggingface.co/gsarti/opus-mt-tc-en-pl)
+- [Monolingual instruction fine-tuned IT]() (TBD)
+- [Monolingual instruction fine-tuned PL](https://huggingface.co/Azurro/llama-2-7b-qlora-polish-instruct)
 
 ## Merging
 
