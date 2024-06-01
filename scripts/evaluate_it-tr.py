@@ -8,12 +8,12 @@ def evaluate(translator, from_language, to_language):
 
 
 def main():
-    translator = ItalianTranslator(model_id="swap-uniba/LLaMAntino-2-chat-7b-hf-UltraChat-ITA")
+    translator = ItalianTranslator()
     evaluate(translator=translator, from_language="tr", to_language="it")
     evaluate(translator=translator, from_language="it", to_language="tr")
     del translator
 
-    translator = TurkishTranslator(model_id="malhajar/Llama-2-7b-chat-tr")
+    translator = TurkishTranslator()
     evaluate(translator=translator, from_language="tr", to_language="it")
     evaluate(translator=translator, from_language="it", to_language="tr")
     del translator

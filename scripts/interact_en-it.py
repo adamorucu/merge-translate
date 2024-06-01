@@ -2,7 +2,7 @@ from merge_translate.translator import ItalianTranslator
 
 
 def main():
-    translator = ItalianTranslator(model_id="swap-uniba/LLaMAntino-2-chat-7b-hf-UltraChat-ITA")
+    translator = ItalianTranslator()
     while True:
         text = input("Enter text to translate: ")
         translation = translator(text=text, from_language="en", to_language="it")

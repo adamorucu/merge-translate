@@ -2,7 +2,7 @@ from merge_translate.translator import TurkishTranslator
 
 
 def main():
-    translator = TurkishTranslator(model_id="malhajar/Llama-2-7b-chat-tr")
+    translator = TurkishTranslator()
     while True:
         text = input("Enter text to translate: ")
         translation = translator(text=text, from_language="en", to_language="tr")
