@@ -44,7 +44,7 @@ class Translator(ABC):
             for translation in dataset:
                 yield translation[from_language], translation[to_language]
 
-        metrics = hf_evaluate.combine(["bleu", "meteor", "chrf"])
+        metrics = hf_evaluate.combine(["bleu", "sacrebleu", "meteor", "chrf"])
         for x, y_true in tqdm(data_generator(), total=len(dataset), desc="Translating"):
             y_pred = self(text=x, from_language=from_language, to_language=to_language)
             metrics.add(prediction=y_pred, reference=y_true)
