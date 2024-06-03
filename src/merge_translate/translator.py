@@ -30,7 +30,7 @@ class Translator(ABC):
             trust_remote_code=True,
         )["translation"]
 
-        dataset = dataset[:1]  # TODO: for draft, a subset is ok... later we will use the full dataset
+        dataset = dataset[:100]  # TODO: for draft, a subset is ok... later we will use the full dataset
 
         def data_generator():
             for translation in dataset:
