@@ -11,32 +11,45 @@ If you do not have `poetry`, see the [official documentation](https://python-poe
 
 ## Usage
 
+Merge model:
+```
+bash ./scripts/merge.sh
+```
+
 Interactive translation:
 ```
-python scripts/interact_en-it.py
+python scripts/interact.py
 ```
 
 Evaluate:
 ```
-python scripts/evaluate_it-tr.py
+python scripts/evaluate_it-sv.py
 ```
+
+Note: The scripts require an access token (needed to use [Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1)).
 
 ## Hypothesis
 
-Given two LLMs:
-1. Instruction fine-tuned LLM on non-English `<language1>`
-2. Instruciton fine-tuned LLM on non-English `<language2>`
+TODO: revise
 
-Merging LLMs 1 and 2 can perform machine translation between `<language1>` and `<language2>` (both directions) better than the individual LLMs 1 and 2.
+Given three LLMs:
+1. Pre-trained LLM
+2. Fine-tuned version of (1) on English instruction-following
+3. Fine-tuned version of (1) on non-English `<language1>`
+4. Fine-tuned version of (1) on non-English `<language2>`
+
+Merging LLMs (1)-(4) can perform prompt-based machine translation between `<language1>` and `<language2>` (both directions) better than the individual LLMs (1)-(4).
 
 ## Experiments
 
-`<language1>` = Turkist (TR)  
-`<language2>` = Italian (IT)
+`<language1>` = Italian (IT)
+`<language2>` = Sweden (SV)
 
 Models:
-1. [Instruction fine-tuned LM on `<language1>`](https://huggingface.co/malhajar/Llama-2-7b-chat-tr) (fine-tuning: llama-2-7b-hf -> Turkist instructions)
-2. [Instruction fine-tuned LM on `<language2>`](https://huggingface.co/swap-uniba/LLaMAntino-2-chat-7b-hf-UltraChat-ITA) (fine-tuning: llama-2-7b-chat-hf -> Italian -> Italian instructions)
+1. [Pre-trained LLM](https://huggingface.co/mistralai/Mistral-7B-v0.1)
+2. [Fine-tuned version of (1) on English instruction-following](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1)
+3. [Fine-tuned version of (1) on non-English `<language1>`](https://huggingface.co/DeepMount00/Mistral-Ita-7b)
+4. [Fine-tuned version of (1) on non-English `<language2>`](https://huggingface.co/timpal0l/Mistral-7B-v0.1-flashback-v2)
 
 Metrics:
 - [BLEU](https://huggingface.co/spaces/evaluate-metric/bleu)
@@ -46,7 +59,3 @@ Metrics:
 Datasets:
 - [Tatoeba](https://huggingface.co/datasets/Helsinki-NLP/tatoeba)
 - [Europarl](https://huggingface.co/datasets/Helsinki-NLP/europarl)
-
-## Merging
-
-Here is an implementation of TIES: https://github.com/arcee-ai/mergekit/blob/main/mergekit/merge_methods/generalized_task_arithmetic.py
