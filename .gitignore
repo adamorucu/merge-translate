@@ -1,5 +1,6 @@
 /data/
 /results/
+/models/
 __pycache__/
 .vscode/
 .DS_Store
