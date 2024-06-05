@@ -40,7 +40,7 @@ Merging LLMs (1)-(4) can perform prompt-based machine translation between `<lang
 
 ## Experiments
 
-`<language1>` = Italian (IT)
+`<language1>` = Italian (IT)  
 `<language2>` = Sweden (SV)
 
 Models:
