@@ -17,19 +17,22 @@ class Translator(ABC):
     def evaluate(
         self, source_language: str, target_language: str, output_path: Path | None = None
     ) -> dict[str, float]:
-        # lang1, lang2 = (
-        #     (source_language, target_language)
-        #     if source_language < target_language
-        #     else (target_language, source_language)
-        # )
-        lang1, lang2 = source_language, target_language
+        lang1, lang2 = (
+            (source_language, target_language)
+            if source_language < target_language
+            else (target_language, source_language)
+        )
         dataset = hf_datasets.load_dataset(
             "Helsinki-NLP/tatoeba",
+            # f"{lang1}-{lang2}",
             lang1=lang1,
             lang2=lang2,
             split="train",
             trust_remote_code=True,
-        )["translation"]
+            # date="v2023-04-12"
+        )
+        dataset = dataset["translation"]
+
 
         dataset = dataset[:100]  # TODO: for draft, a subset is ok... later we will use the full dataset
 
@@ -47,6 +50,12 @@ class Translator(ABC):
             output_path.parent.mkdir(parents=True, exist_ok=True)
             hf_evaluate.save(output_path, **results)
 
+        print(self.model_id)
+        print("Source:", source_language, "Target:", target_language)
+        print("Sacrebleu:", results['sacrebleu_score'])
+        print("METEOR:", results['meteor'])
+        # print(results)
+        print()
         return results
 
 

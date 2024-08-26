@@ -16,10 +16,10 @@ def evaluate(translator, source_language, target_language):
 def main():
     # hf_hub.login()
 
-    translator = MistralTranslator()
-    evaluate(translator=translator, source_language="sv", target_language="it")
-    evaluate(translator=translator, source_language="it", target_language="sv")
-    del translator
+    # translator = MistralTranslator()
+    # evaluate(translator=translator, source_language="sv", target_language="it")
+    # evaluate(translator=translator, source_language="it", target_language="sv")
+    # del translator
 
     translator = MistralMergedTranslator(model_id="./models/Mistral-7B-Merged-v0.1")
     evaluate(translator=translator, source_language="sv", target_language="it")
