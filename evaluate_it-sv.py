@@ -14,7 +14,7 @@ def evaluate(translator, source_language, target_language):
 
 
 def main():
-    hf_hub.login()
+    # hf_hub.login()
 
     translator = MistralTranslator()
     evaluate(translator=translator, source_language="sv", target_language="it")

@@ -15,13 +15,14 @@ class Translator(ABC):
         raise NotImplementedError
 
     def evaluate(
-        self, source_language: str, target_language: str, output_path: str | Path | None = None
+        self, source_language: str, target_language: str, output_path: Path | None = None
     ) -> dict[str, float]:
-        lang1, lang2 = (
-            (source_language, target_language)
-            if source_language < target_language
-            else (target_language, source_language)
-        )
+        # lang1, lang2 = (
+        #     (source_language, target_language)
+        #     if source_language < target_language
+        #     else (target_language, source_language)
+        # )
+        lang1, lang2 = source_language, target_language
         dataset = hf_datasets.load_dataset(
             "Helsinki-NLP/tatoeba",
             lang1=lang1,
@@ -61,9 +62,9 @@ class MistralTranslator(Translator):
         "information: '{text}'"
     )
 
-    def __init__(self):
+    def __init__(self, model_id: str | None = None):
         super().__init__()
-        self.model_id = "mistralai/Mistral-7B-Instruct-v0.1"
+        self.model_id = "mistralai/Mistral-7B-Instruct-v0.1" if model_id is None else model_id
         self.device = "cuda" if th.cuda.is_available() else "cpu"
         self.model = hf_transformers.AutoModelForCausalLM.from_pretrained(self.model_id).to(self.device).eval()
         self.tokenizer = hf_transformers.AutoTokenizer.from_pretrained(self.model_id)
