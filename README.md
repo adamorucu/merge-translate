@@ -2,6 +2,12 @@
 
 ## Install
 
+Clone:
+
+```bash
+git pull --recurse-submodules git@github.com:adamorucu/merge-translate.git
+```
+
 ```bash
 poetry install
 poetry shell

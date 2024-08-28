@@ -15,17 +15,14 @@ sacremoses = "^0.1.1"
 evaluate = "^0.4.2"
 tqdm = "^4.66.4"
 sacrebleu = "^2.4.2"
+mergekit = { path = "third-party/mergekit/", develop = true }
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pylint]
-disable = """
-    missing-module-docstring,
-    missing-function-docstring,
-    missing-class-docstring,
-"""
+disable = ["C0114"]
 
 [tool.pylint.format]
 max-line-length = 120
