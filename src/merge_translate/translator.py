@@ -5,10 +5,14 @@ import torch as th
 import transformers as hf_transformers
 import datasets as hf_datasets
 import evaluate as hf_evaluate
+import nltk
 
 
 class Translator(ABC):
     """Prompt-based translator."""
+
+    def __init__(self):
+        nltk.download("punkt_tab")
 
     @abstractmethod
     def __call__(self, text: str, source_language: str, target_language: str) -> str:
@@ -29,8 +33,6 @@ class Translator(ABC):
             split="train",
             trust_remote_code=True,
         )["translation"]
-
-        dataset = dataset[:100]  # TODO: for draft, a subset is ok... later we will use the full dataset
 
         def data_generator():
             for translation in dataset:
