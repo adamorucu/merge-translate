@@ -26,13 +26,13 @@ bash ./scripts/merge.sh
 Interactive translation (Italian -> Swedish):
 
 ```bash
-python scripts/interact.py
+python scripts/interact_it_sv.py
 ```
 
 Evaluate (Italian-Swedish, both ways):
 
 ```bash
-python scripts/evaluate.py
+python scripts/evaluate_it_sv.py
 ```
 
 Note: The scripts require an access token (needed to use [Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1)).
