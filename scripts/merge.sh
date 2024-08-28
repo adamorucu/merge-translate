@@ -1,1 +1,1 @@
-mergekit-yaml config/mistral_ties.yml ./models/Mistral-7B-Merged-v0.1/
+mergekit-yaml config/mistral-ties.yml ./models/Mistral-7B-Merged-v0.1/
