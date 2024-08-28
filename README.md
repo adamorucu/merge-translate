@@ -23,16 +23,16 @@ Merge model:
 bash ./scripts/merge.sh
 ```
 
-Interactive translation:
+Interactive translation (Italian -> Swedish):
 
 ```bash
 python scripts/interact.py
 ```
 
-Evaluate:
+Evaluate (Italian-Swedish, both ways):
 
 ```bash
-python scripts/evaluate_it_sv.py
+python scripts/evaluate.py
 ```
 
 Note: The scripts require an access token (needed to use [Mistral-7B-v0.1](https://huggingface.co/mistralai/Mistral-7B-v0.1)).

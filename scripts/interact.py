@@ -8,6 +8,7 @@ def main():
     hf_hub.login()
 
     translator = MistralMergedTranslator("./models/Mistral-7B-Merged-v0.1") if USE_MERGED else MistralTranslator()
+    print("Welcome to the Italian-Swedish translator!")
     while True:
         text = input("Enter text to translate: ")
         translation = translator(text=text, source_language="it", target_language="sv")
