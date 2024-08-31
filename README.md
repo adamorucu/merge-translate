@@ -39,7 +39,7 @@ Note: The scripts require an access token (needed to use [Mistral-7B-v0.1](https
 
 ## Hypothesis
 
-Given three LLMs:
+Given these LLMs:
 
 1. Pre-trained LLM
 2. Fine-tuned version of (1) on English instruction-following
