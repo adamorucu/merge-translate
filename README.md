@@ -46,7 +46,7 @@ Given these LLMs:
 3. Fine-tuned version of (1) on non-English `<language1>`
 4. Fine-tuned version of (1) on non-English `<language2>`
 
-Merging LLMs (2)-(4) can perform prompt-based machine translation between `<language1>` and `<language2>` (both directions) better than the individual LLMs (2)-(4).
+Merging LLMs (2)-(4) can perform prompt-based machine translation between `<language1>` and `<language2>` (both directions) better than LLM (2).
 
 ## Experiments
 
